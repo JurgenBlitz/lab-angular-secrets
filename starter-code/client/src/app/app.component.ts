@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from "rxjs/Rx";
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-root',
@@ -7,8 +8,24 @@ import { Observable } from "rxjs/Rx";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  constructor() { }
+
+  formInfo = {
+    username: '',
+    password: ''
+  };
+  error: string;
+  privateData: any = '';
+
+  constructor(public router:Router/*, private signupComponent: AuthSignupComponent, private loginComponent: AuthLoginComponent*/) { }
 
   ngOnInit() {
   }
-}
+ 
+  login(){
+    this.router.navigate(['/login']);
+  }
+  signup(){
+    this.router.navigate(['/signup']);
+    
+  }
+ }
