@@ -17,6 +17,7 @@ export class SessionService {
   constructor(private http: Http) { }
 
   signup(user) {
+    console.log(user);
     return this.http.post(`${this.BASEURL}/api/signup`, user)
       .map(res => res.json())
       .catch(this.handleError);

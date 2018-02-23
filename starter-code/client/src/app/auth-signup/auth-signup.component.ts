@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from "../session.service";
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-auth-signup',
@@ -10,13 +11,15 @@ export class AuthSignupComponent implements OnInit {
   user: any;
  formInfo = {
    username: '',
-   password: ''
+   name: '',
+   password: '',
+   secret: ''
  };
  error: string;
  privateData: any = '';
 
 
- constructor(private session: SessionService) { }
+ constructor(private session: SessionService, public routerPrivate:Router) { }
 
  ngOnInit() {
  }
@@ -37,5 +40,6 @@ export class AuthSignupComponent implements OnInit {
  successCb(user) {
    this.user = user;
    this.error = null;
+   this.routerPrivate.navigate(['/private'])
  }
 }
