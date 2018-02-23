@@ -9,7 +9,7 @@ import { Router } from '@angular/router'
 })
 export class AuthSignupComponent implements OnInit {
   user: any;
- formInfo = {
+  formInfo = {
    username: '',
    name: '',
    password: '',
